@@ -91,6 +91,7 @@ namespace SmartBraceletAlert1
             {
                 if (ex.Message.Contains("Authentication was cancelled"))
                 {
+
                     //messageLabel.Text = "Authentication cancelled by the user";
                 }
             }
