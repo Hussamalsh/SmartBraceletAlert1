@@ -11,7 +11,7 @@ namespace SmartBraceletAlert1
 
     public class App : Application
     {
-
+        int hello;
         public static IAuthenticate Authenticator { get; private set; } //initialize the interface with a platform-specific implementation
 
         public static void Init(IAuthenticate authenticator)
