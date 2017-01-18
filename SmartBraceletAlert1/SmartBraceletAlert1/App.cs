@@ -41,27 +41,70 @@ namespace SmartBraceletAlert1
         public App()
         {
             // The root page of your application
-          /*  var content = new ContentPage
-            {
-                Title = "SmartBraceletAlert1",
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };*/
+            /*  var content = new ContentPage
+              {
+                  Title = "SmartBraceletAlert1",
+                  Content = new StackLayout
+                  {
+                      VerticalOptions = LayoutOptions.Center,
+                      Children = {
+                          new Label {
+                              HorizontalTextAlignment = TextAlignment.Center,
+                              Text = "Welcome to Xamarin Forms!"
+                          }
+                      }
+                  }
+              };*/
 
-           // MainPage = new MainPageCS();
+            checklogin();
 
+           MainPage = new MainPageCS();
+           
 
             // The root page of your application
-            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new NavigationPage(new LoginPage());
         }
+
+
+
+        async void checklogin()
+        {
+
+
+
+            try
+            {
+
+                if (App.Authenticator != null)
+                {
+                    authenticated = await App.Authenticator.AuthenticateAsync();
+                }
+
+                if (!authenticated)
+                {
+                    MainPage = new LoginPage();
+                    //Navigation.InsertPageBefore(new MainPageCS(), this);
+                    //await Navigation.PopAsync();
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.Message.Contains("Authentication was cancelled"))
+                {
+                    //messageLabel.Text = "Authentication cancelled by the user";
+                }
+            }
+            catch (Exception)
+            {
+                //messageLabel.Text = "Authentication failed";
+            }
+
+
+
+
+        }
+
+
 
         protected override void OnStart()
         {

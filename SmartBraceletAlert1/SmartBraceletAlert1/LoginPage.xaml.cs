@@ -32,8 +32,9 @@ namespace SmartBraceletAlert1
 
                 if (authenticated)
                 {
-                    Navigation.InsertPageBefore(new MainPageCS(), this);
-                    await Navigation.PopAsync();
+                    //Navigation.InsertPageBefore(new MainPageCS(), this);
+                    //await Navigation.PopAsync();
+                    Application.Current.MainPage = new MainPageCS();
                 }
             }
             catch (InvalidOperationException ex)
