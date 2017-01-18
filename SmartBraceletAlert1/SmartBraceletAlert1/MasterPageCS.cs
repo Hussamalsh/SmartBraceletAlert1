@@ -19,32 +19,32 @@ namespace SmartBraceletAlert1
         public MasterPageCS()
         {
 
-            var masterPageItems = new List<MasterPageItem>();
+            var masterPageItems = new List<MasterPageItem>();            
 
             masterPageItems.Add(new MasterPageItem
             {
-                Title = "Home",
+                Title = "Hem",
                 IconSource = "contacts.png",
                 TargetType = typeof(HomePageCS)
             });
 
             masterPageItems.Add(new MasterPageItem
             {
-                Title = "Skydare",
+                Title = "Skyddare",
                 IconSource = "todo.png",
                 TargetType = typeof(AboutPageCS)
             });
 
             masterPageItems.Add(new MasterPageItem
             {
-                Title = "Profile",
+                Title = "Profil",
                 IconSource = "reminders.png",
                 TargetType = typeof(ProfilePageCS)
             });
 
             masterPageItems.Add(new MasterPageItem
             {
-                Title = "Setting",
+                Title = "Inställningar",
                 IconSource = "Setting.png",
                 TargetType = typeof(SettingPageCS)
             });
@@ -52,14 +52,14 @@ namespace SmartBraceletAlert1
 
             masterPageItems.Add(new MasterPageItem
             {
-                Title = "Help",
+                Title = "Hjälp",
                 IconSource = "Help.png",
                 TargetType = typeof(HelpPageCS)
             });
 
             masterPageItems.Add(new MasterPageItem
             {
-                Title = "About",
+                Title = "Om",
                 IconSource = "about.png",
                 TargetType = typeof(AbouttPageCS)
             });
@@ -82,7 +82,7 @@ namespace SmartBraceletAlert1
 
             Padding = new Thickness(0, 40, 0, 0);
             Icon = "hamburger.png";
-            Title = "Smart Bracelet Alert App";
+            Title = "Smart Bracelet Alert";
 
             Content = new StackLayout
             {

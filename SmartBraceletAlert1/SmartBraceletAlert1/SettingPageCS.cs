@@ -16,17 +16,49 @@ namespace SmartBraceletAlert1
 
         public SettingPageCS()
         {
-            Title = "Setting Page";
+            Title = "Inställningar";
+            TableView tableView = new TableView
+            {
+                Intent = TableIntent.Form,
+                Root = new TableRoot
+
+                {
+                    
+                    new TableSection("Här ändrar du inställningarna för Smart Band Alert")
+                    {
+                        new SwitchCell
+                        {
+                            Text = "Aktivt armband:"
+                        },
+                        new SwitchCell
+                        {
+                            Text = "Ta emot push-notifikationer:"
+                        },
+                        new SwitchCell
+                        {
+                            Text = "Ljud-larm vid aktivering:"
+                        }
+                }
+
+            }
+            };
+            Button batteryButton = new Button
+            {
+                Text = "Batteristatus",
+                Font = Font.SystemFontOfSize(NamedSize.Medium),
+                BorderWidth = 1,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.CenterAndExpand
+            };
             Content = new StackLayout
             {
-                Children = {
-                    new Label {
-                        Text = "Setting list data goes here",
-                        HorizontalOptions = LayoutOptions.Center,
-                        VerticalOptions = LayoutOptions.CenterAndExpand
-                    }
+                Children =
+                {
+                   batteryButton,
+                   tableView
                 }
             };
+
         }
 
 
