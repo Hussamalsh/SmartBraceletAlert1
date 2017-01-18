@@ -11,12 +11,12 @@ namespace SmartBraceletAlert1
     public partial class LoginPage : ContentPage
     {
         bool authenticated = false;
- 
 
-        public  LoginPage()
+        App mCurrent;
+        public  LoginPage(App Current)
         {
             InitializeComponent();
-            
+            mCurrent = Current;
         }
 
 
@@ -32,8 +32,12 @@ namespace SmartBraceletAlert1
 
                 if (authenticated)
                 {
-                    Navigation.InsertPageBefore(new MainPageCS(), this);
-                    await Navigation.PopAsync();
+                    //Navigation.InsertPageBefore(new MainPageCS(), this);
+                    //await Navigation.PopAsync();
+                    //MainPage = new NavigationPage(new LoginPage());
+                    //mCurrent.ShowMainPage();
+                    MessagingCenter.Send<object>(this, App.EVENT_LAUNCH_MAIN_PAGE);
+
                 }
             }
             catch (InvalidOperationException ex)
