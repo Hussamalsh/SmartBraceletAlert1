@@ -48,8 +48,10 @@ namespace SmartBraceletAlert1
                 Font = Font.SystemFontOfSize(NamedSize.Medium),
                 BorderWidth = 1,
                 HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.CenterAndExpand
-            };
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                Command = new Command (() => DisplayAlert("Batteristatus", "10000%", "OK"))
+        };
+            
             Content = new StackLayout
             {
                 Children =
