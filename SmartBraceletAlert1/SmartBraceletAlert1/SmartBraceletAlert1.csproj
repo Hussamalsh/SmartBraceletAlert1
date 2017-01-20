@@ -51,10 +51,9 @@
     <Compile Include="HelpPageCS.cs" />
     <Compile Include="SBAManager.cs" />
     <Compile Include="SettingPageCS.cs" />
-    <Compile Include="SkydarePageCS.cs" />
+    <Compile Include="SkyddarePageCS.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -32,7 +32,7 @@ namespace SmartBraceletAlert1
             {
                 Title = "Skyddare",
                 IconSource = "todo.png",
-                TargetType = typeof(AboutPageCS)
+                TargetType = typeof(SkyddarePageCS)
             });
 
             masterPageItems.Add(new MasterPageItem
