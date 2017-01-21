@@ -39,7 +39,7 @@ namespace SmartBraceletAlert1
             {
                 Title = "Profile",
                 IconSource = "reminders.png",
-                TargetType = typeof(ProfilePageCS)
+                TargetType = typeof(SmartBraceletAlert1.ProfilePage3)
             });
 
             masterPageItems.Add(new MasterPageItem

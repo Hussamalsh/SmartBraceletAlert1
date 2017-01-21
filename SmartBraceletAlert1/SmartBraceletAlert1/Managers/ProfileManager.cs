@@ -17,10 +17,14 @@ namespace SmartBraceletAlert1.Managers
         public void SaveProfile(Profile profile)
         {
             App.Current.Properties[nameof(Profile.Username)] = profile.Username;
+
             App.Current.Properties[nameof(Profile.FBusername)] = profile.FBusername;
+            App.Current.Properties[nameof(Profile.FBimage)] = profile.FBimage;
+
             App.Current.Properties[nameof(Profile.Firstname)] = profile.Firstname;
             App.Current.Properties[nameof(Profile.NotifyNews)] = profile.NotifyNews;
             App.Current.Properties[nameof(Profile.NotifyFriends)] = profile.NotifyFriends;
+            App.Current.SavePropertiesAsync();
         }
 
         public Profile LoadProfile()
@@ -33,6 +37,10 @@ namespace SmartBraceletAlert1.Managers
 
                 FBusername = App.Current.Properties.ContainsKey(nameof(Profile.FBusername))
                     ? App.Current.Properties[nameof(Profile.FBusername)] as string
+                    : string.Empty,
+
+                FBimage = App.Current.Properties.ContainsKey(nameof(Profile.FBimage))
+                    ? App.Current.Properties[nameof(Profile.FBimage)] as string
                     : string.Empty,
 
 

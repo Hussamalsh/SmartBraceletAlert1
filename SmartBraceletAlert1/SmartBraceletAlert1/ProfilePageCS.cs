@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+
 namespace SmartBraceletAlert1
 {
     public class ProfilePageCS : ContentPage

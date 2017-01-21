@@ -20,6 +20,12 @@ namespace SmartBraceletAlert1.Models
             set;
         }
 
+        public string FBimage
+        {
+            get;
+            set;
+        }
+
         public string Firstname
         {
             get;

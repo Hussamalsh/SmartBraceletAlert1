@@ -78,7 +78,7 @@ namespace SmartBraceletAlert1
         {
 
             _profile =  _profileManager.LoadProfile();
-            MainPage = !IsLoggedIn ? (Page) new LoginPage() : new MainPageCS();
+            MainPage = !IsLoggedIn ? (Page) new LoginPage() : new MainPage();
 
            // MainPage = new LoginPage();
 
@@ -136,6 +136,7 @@ namespace SmartBraceletAlert1
        public void SaveProfile()
         {
             _profile.FBusername = FacebookName;
+            _profile.FBimage = ProfilePic;
             _profileManager.SaveProfile(_profile);
         }
         void LoadProfile()

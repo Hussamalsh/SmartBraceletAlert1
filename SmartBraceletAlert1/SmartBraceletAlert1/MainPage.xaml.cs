@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
+using System.Threading.Tasks;
+
 using Xamarin.Forms;
 
 namespace SmartBraceletAlert1
 {
-    public class MainPageCS : MasterDetailPage
+    public partial class MainPage : MasterDetailPage
     {
 
-        MasterPageCS masterPage;
 
-        public MainPageCS()
+        public MainPage()
         {
-            masterPage = new MasterPageCS();
-            Master = masterPage;
-            Detail = new NavigationPage(new HomePageCS());
+            InitializeComponent();
 
             masterPage.ListView.ItemSelected += OnItemSelected;
 
@@ -24,28 +22,22 @@ namespace SmartBraceletAlert1
             {
                 Master.Icon = "swap.png";
             }
-
         }
-
-
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
             var item = e.SelectedItem as MasterPageItem;
-
-
             if (item != null)
             {
-
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
                 masterPage.ListView.SelectedItem = null;
-                IsPresented = false;  //Show the detail page.
+                IsPresented = false;
             }
-
-
-
         }
+
+
+
+
 
 
     }
