@@ -11,7 +11,6 @@ namespace SmartBraceletAlert1
 
     public class App : Application
     {
-        int hello;
         public static IAuthenticate Authenticator { get; private set; } //initialize the interface with a platform-specific implementation
 
         public static void Init(IAuthenticate authenticator)
@@ -55,17 +54,24 @@ namespace SmartBraceletAlert1
                       }
                   }
               };*/
+            PresentMainPage();
 
-            checklogin();
+          // checklogin();
 
-           MainPage = new MainPageCS();
+           //MainPage = new MainPageCS();
            
 
             // The root page of your application
             //MainPage = new NavigationPage(new LoginPage());
         }
 
+        public void PresentMainPage()
+        {
+             MainPage = !IsLoggedIn ? (Page) new LoginPage() : new MainPageCS();
 
+           // MainPage = new LoginPage();
+
+        }
 
         async void checklogin()
         {
@@ -105,7 +111,50 @@ namespace SmartBraceletAlert1
 
         }
 
+        #region Facebook Auth Settings
+        public static string AppId = "386661445019743";
+        public static string DisplayName = "SBA App";
+        public static string ExtendedPermissions = "user_about_me,email,public_profile";
+        public static string AuthorizeUrl = "https://www.facebook.com/dialog/oauth";
+        public static string RedirectUrl = "https://www.facebook.com/connect/login_success.html";
+        #endregion
 
+
+        public static bool IsLoggedIn
+        {
+            get;
+            set;
+        }
+
+        public static bool IsDemo
+        {
+            get;
+            set;
+        }
+
+        public static string FacebookId
+        {
+            get;
+            set;
+        }
+
+        public static string FacebookName
+        {
+            get;
+            set;
+        }
+
+        public static string EmailAddress
+        {
+            get;
+            set;
+        }
+
+        public static string ProfilePic
+        {
+            get;
+            set;
+        }
 
         protected override void OnStart()
         {
