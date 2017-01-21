@@ -66,9 +66,13 @@ namespace SmartBraceletAlert1.Droid
                     App.FacebookName = obj["name"];
                     App.EmailAddress = obj["email"];
                     App.ProfilePic = obj["picture"]["data"]["url"];
+                    // On Android: store the account
+                    AccountStore.Create(Context).Save(eargs.Account, "Facebook");
+
 
                     await App.Current.MainPage.Navigation.PopModalAsync();
                     App.IsLoggedIn = true;
+                    ((App)App.Current).SaveProfile();
                     ((App)App.Current).PresentMainPage();
                 }
             };

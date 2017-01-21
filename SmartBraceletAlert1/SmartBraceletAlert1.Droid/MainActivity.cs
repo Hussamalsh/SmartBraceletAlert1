@@ -9,6 +9,9 @@ using Android.OS;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using Android.Webkit;
+using Xamarin.Auth;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SmartBraceletAlert1.Droid
 {
@@ -71,9 +74,16 @@ namespace SmartBraceletAlert1.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+            //Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
-            App.Init((IAuthenticate)this);
+            //App.Init((IAuthenticate)this);
+            // On Android:
+            var accounts = AccountStore.Create(this).FindAccountsForService("Facebook");
+            var account = accounts.FirstOrDefault();
+            if(account != null)
+                App.IsLoggedIn = true;
+            // IEnumerable<Account> accounts = AccountStore.Create(this).FindAccountsForService("Facebook");
+            // var account = accounts.FirstOrDefault();
 
 
             LoadApplication(new App());

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SmartBraceletAlert1.Managers;
+using SmartBraceletAlert1.Managers.Contracts;
+using SmartBraceletAlert1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +19,8 @@ namespace SmartBraceletAlert1
         public static void Init(IAuthenticate authenticator)
         {
             Authenticator = authenticator;
+
+            
         }
 
         bool authenticated = false;
@@ -54,6 +59,10 @@ namespace SmartBraceletAlert1
                       }
                   }
               };*/
+
+            IProfileManager profileManager = new ProfileManager();
+            _profileManager = profileManager;
+            LoadProfile();
             PresentMainPage();
 
           // checklogin();
@@ -67,7 +76,9 @@ namespace SmartBraceletAlert1
 
         public void PresentMainPage()
         {
-             MainPage = !IsLoggedIn ? (Page) new LoginPage() : new MainPageCS();
+
+            _profile =  _profileManager.LoadProfile();
+            MainPage = !IsLoggedIn ? (Page) new LoginPage() : new MainPageCS();
 
            // MainPage = new LoginPage();
 
@@ -119,6 +130,18 @@ namespace SmartBraceletAlert1
         public static string RedirectUrl = "https://www.facebook.com/connect/login_success.html";
         #endregion
 
+        Profile _profile;
+        readonly IProfileManager _profileManager;
+
+       public void SaveProfile()
+        {
+            _profile.FBusername = FacebookName;
+            _profileManager.SaveProfile(_profile);
+        }
+        void LoadProfile()
+        {
+            _profile = _profileManager.LoadProfile();
+        }
 
         public static bool IsLoggedIn
         {
@@ -155,6 +178,11 @@ namespace SmartBraceletAlert1
             get;
             set;
         }
+
+
+
+
+
 
         protected override void OnStart()
         {

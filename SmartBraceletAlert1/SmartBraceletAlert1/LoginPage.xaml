@@ -6,7 +6,12 @@
 
   <StackLayout VerticalOptions="Center">
     
-    <Button Text="Login" Clicked="OnLoginButtonClicked" />  
+    <Button Text="Login with Facebook" 
+            Clicked="OnLoginButtonClicked"    
+            TextColor="White"
+            BackgroundColor="#01579B"
+            Font="Bold"
+            FontSize="26" />  
     
     <!--<Button Text="Login"  Command="{Binding DoFacebookLogin}" />-->
 
